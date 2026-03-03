@@ -15,13 +15,34 @@ class RecipeDetailScreen extends StatelessWidget {
       appBar: AppBar( 
         title: Text(recipe.name),
       ),
-      body: Column(
-        children: [
-          Text(recipe.description),
-          ...recipe.ingredients.map((ingredient) => Text(ingredient)),
-          ...recipe.steps.map((step) => Text(step)),
-        ],
-      ),
+      body: SingleChildScrollView( // ensure that column doesn't crash when overbound
+        padding: EdgeInsets.all(16),
+        child: Column( 
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(recipe.description),
+
+            // add margin
+            SizedBox(height: 20,),  
+
+            const Text(
+              "Ingredients",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+
+            ...recipe.ingredients.map((ingredient) => Text(ingredient)),
+
+            SizedBox(height: 16,),  
+
+            const Text(
+              "Steps",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            
+            ...recipe.steps.map((step) => Text(step)),
+            ],
+        ),
+      )
     );
   }
 }
