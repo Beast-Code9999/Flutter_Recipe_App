@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/models/recipe.dart';
+import 'package:recipe_app/screens/recipe_detail_screen.dart';
 
 class RecipeScreen extends StatefulWidget {
   const RecipeScreen({super.key});
@@ -15,7 +16,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
   void initState() {
     super.initState();
 
-  recipeList = [
+  recipeList = [ // hardcoded recipes
     Recipe(
       id: "1",
       name: "Spaghetti Bolognese",
@@ -126,10 +127,21 @@ class _RecipeScreenState extends State<RecipeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
+      body: ListView.builder( // build list of recipes with onTap navigation
         itemCount: recipeList.length,
         itemBuilder: (context, index) {
-          return Text(recipeList[index].name);
+           final recipe = recipeList[index];
+
+          return ListTile(
+            title: Text(recipe.name),
+            onTap: () {
+              // navigate to the recipe detail page
+              Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => RecipeDetailScreen(recipe: recipe)));
+            },
+          );
         },
       ),
     );
