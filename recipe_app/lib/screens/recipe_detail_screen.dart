@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-class RecipeDetailScreen extends StatefulWidget {
+class RecipeDetailScreen extends StatelessWidget {
   const RecipeDetailScreen({super.key});
 
   @override
-  State<RecipeDetailScreen> createState() => _RecipeDetailScreenState();
-}
-
-class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: Center(
+        child: Text("Hello World"),
+      ),
+    );
   }
 }
