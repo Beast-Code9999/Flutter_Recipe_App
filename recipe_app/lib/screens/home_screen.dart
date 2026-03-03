@@ -127,6 +127,9 @@ class _RecipeScreenState extends State<RecipeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Recipes for you"),
+      ),
       body: Center(
         child: ListView.builder( // build list of recipes with onTap navigation
           itemCount: recipeList.length,
@@ -145,6 +148,20 @@ class _RecipeScreenState extends State<RecipeScreen> {
             );
           },
         ),
+      ),
+
+      // bottom navigation for recipes and favourites
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.food_bank),
+            label: "Recipes",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: "Favourites",
+          ),
+        ]
       ),
     );
   }
