@@ -15,8 +15,12 @@ class RecipeDetailScreen extends StatelessWidget {
       appBar: AppBar( 
         title: Text(recipe.name),
       ),
-      body: Center(
-        child: Text(recipe.description),
+      body: Column(
+        children: [
+          Text(recipe.description),
+          ...recipe.ingredients.map((ingredient) => Text(ingredient)),
+          ...recipe.steps.map((step) => Text(step)),
+        ],
       ),
     );
   }

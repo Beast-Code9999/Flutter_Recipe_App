@@ -127,22 +127,24 @@ class _RecipeScreenState extends State<RecipeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder( // build list of recipes with onTap navigation
-        itemCount: recipeList.length,
-        itemBuilder: (context, index) {
-           final recipe = recipeList[index];
-
-          return ListTile(
-            title: Text(recipe.name),
-            onTap: () {
-              // navigate to the recipe detail page
-              Navigator.push(
-                context, 
-                MaterialPageRoute(
-                  builder: (context) => RecipeDetailScreen(recipe: recipe)));
-            },
-          );
-        },
+      body: Center(
+        child: ListView.builder( // build list of recipes with onTap navigation
+          itemCount: recipeList.length,
+          itemBuilder: (context, index) {
+             final recipe = recipeList[index];
+        
+            return ListTile(
+              title: Text(recipe.name),
+              onTap: () {
+                // navigate to the recipe detail page
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context) => RecipeDetailScreen(recipe: recipe)));
+              },
+            );
+          },
+        ),
       ),
     );
   }
