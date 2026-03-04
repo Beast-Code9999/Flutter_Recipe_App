@@ -5,7 +5,6 @@ void main() {
   runApp(RecipeApp());
 }
 
-
 class RecipeApp extends StatelessWidget {
   const RecipeApp({super.key});
 
