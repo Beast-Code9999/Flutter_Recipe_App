@@ -149,20 +149,6 @@ class _RecipeScreenState extends State<RecipeScreen> {
           },
         ),
       ),
-
-      // bottom navigation for recipes and favourites
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.food_bank),
-            label: "Recipes",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: "Favourites",
-          ),
-        ]
-      ),
     );
   }
 }

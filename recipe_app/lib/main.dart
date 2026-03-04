@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/screens/main_screen.dart';
 import 'screens/home_screen.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class RecipeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: RecipeScreen(),
+      home: MainScreen(),
     );
   }
 }
