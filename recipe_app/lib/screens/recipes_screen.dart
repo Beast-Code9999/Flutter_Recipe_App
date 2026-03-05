@@ -154,7 +154,6 @@ class _RecipeScreenState extends State<RecipeScreen> {
               },
               onLongPress: () { // add or remove from favourites
                 widget.onFavouriteToggle(recipe);
-                
               },
             );
           },

@@ -25,9 +25,9 @@ class _MainScreenState extends State<MainScreen> {
       onFavouriteToggle: (recipe) {
         setState(() {
           if (favourites.any((r) => r.id == recipe.id)) {
-            favourites.remove(recipe);
+            favourites.removeWhere((item) => item.id == recipe.id); // remove recipe from favourites list if already exist when longPress
           } else {
-            favourites.add(recipe);
+            favourites.add(recipe); // add recipe if doesn't exist on favourites on longPress
           }
         });
       },
