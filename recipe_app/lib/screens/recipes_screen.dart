@@ -3,7 +3,14 @@ import 'package:recipe_app/models/recipe.dart';
 import 'package:recipe_app/screens/recipe_detail_screen.dart';
 
 class RecipeScreen extends StatefulWidget {
-  const RecipeScreen({super.key});
+  final List<Recipe> favourites;
+  final Function(Recipe) onFavouriteToggle;
+
+  const RecipeScreen({
+    super.key,
+    required this.favourites,
+    required this.onFavouriteToggle,
+  });
 
   @override
   State<RecipeScreen> createState() => _RecipeScreenState();
@@ -144,6 +151,10 @@ class _RecipeScreenState extends State<RecipeScreen> {
                   context, 
                   MaterialPageRoute(
                     builder: (context) => RecipeDetailScreen(recipe: recipe)));
+              },
+              onLongPress: () { // add or remove from favourites
+                widget.onFavouriteToggle(recipe);
+                
               },
             );
           },

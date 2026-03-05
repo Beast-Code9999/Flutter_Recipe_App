@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/models/recipe.dart';
 
 class FavouritesScreen extends StatelessWidget {
-  const FavouritesScreen({super.key});
+  final List<Recipe> favourites;
+
+  const FavouritesScreen({
+    super.key,
+    required this.favourites,
+  });
 
   @override
   Widget build(BuildContext context) {

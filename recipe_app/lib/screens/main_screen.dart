@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/screens/favourites_screen.dart';
-import 'package:recipe_app/screens/home_screen.dart';
+import 'package:recipe_app/screens/recipes_screen.dart';
+import 'package:recipe_app/models/recipe.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -12,17 +13,34 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = [ // list of screens to navigate to
-    RecipeScreen(),
-    FavouritesScreen(),
-  ];
-  
+  List<Recipe> favourites = [];
+
+
   @override
   Widget build(BuildContext context) { 
-    return Scaffold(
-      body: _pages[_currentIndex],
 
-      // bottom navigation for recipes and favourites that are shared within all screens
+    final List<Widget> _pages = [ // list of screens to navigate to
+    RecipeScreen( // RecipeScreen with two parameters
+      favourites: favourites,
+      onFavouriteToggle: (recipe) {
+        setState(() {
+          if (favourites.any((r) => r.id == recipe.id)) {
+            favourites.remove(recipe);
+          } else {
+            favourites.add(recipe);
+          }
+        });
+      },
+    ),
+    FavouritesScreen( // FavouriteScreen with one parameter
+      favourites: favourites,
+    ),
+  ];
+  
+    return Scaffold(
+      body: _pages[_currentIndex], // allows for different pages to load
+
+      // bottom navigation for items recipes and favourites that are shared within all screens
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
