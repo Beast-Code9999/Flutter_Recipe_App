@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/screens/main_screen.dart';
-import 'screens/recipes_screen.dart';
 
 void main() {
   runApp(RecipeApp());

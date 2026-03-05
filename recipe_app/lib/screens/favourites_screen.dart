@@ -11,9 +11,13 @@ class FavouritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text("Favourites"),
+        child: ListView.builder(
+          itemCount: favourites.length,
+          itemBuilder: (context, index) {
+            return Text(favourites[index].name);
+          }),
       ),
     );
   }
