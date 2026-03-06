@@ -155,6 +155,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
               onLongPress: () { // add or remove from favourites
                 widget.onFavouriteToggle(recipe);
               },
+              trailing: widget.favourites.any((r)=> r.id == recipe.id) ? Icon(Icons.star) : null // add star if in favourites
             );
           },
         ),
